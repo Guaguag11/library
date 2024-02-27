@@ -1,0 +1,36 @@
+
+div class="d-flex flex-column justify-content-between row"
+    button type="button" class="btn btn-light ms-4 col-1" style="height:3rem" =link_to 'Nuevo libro', new_book_path(@book), class:"text-decoration-none text-black"
+
+    div class="d-flex justify-content-around flex-wrap mb-5" style="max-width:100rem"
+        - @books.each do |book| 
+            div class="d-inline-flex p-2 pt-0"
+                div class="card mt-5 me-5 text-center p-1 bg-gray text-black" style="width: 15rem; height: 34rem; box-shadow: 15px 7px 15px black; display: flex;justify-content: space-between; background-color: rgb(242 242 242 / 15%);"
+                    img class="card-img-top" src = book.url alt="Imagen de portada de libro"
+                    button type="button" class="btn btn-primary border-0" data-bs-toggle="modal" data-bs-target="#modal_image_#{book.id}" style="background-color: #f0f8ff00; position: absolute; width: 15rem; height: 22rem;"
+                    div class="modal fade" id="modal_image_#{book.id}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true"
+                        div class="modal-dialog"
+                            div class="modal-content" style="background-color: #fff0;"
+                                div class="modal-body"
+                                    img style ="width:23rem" src="#{book.url}"
+                                div class="modal-footer" style="border-top: aliceblue;"
+                                    button type="button" class="btn btn-secondary" data-bs-dismiss="modal" style="margin-right:3rem"
+                                        | Seguir explorando
+
+                    h3 class="card-title mb-2" style="font-size: 23px; line-height: 1; " =link_to book.title, "/books/#{book.id}", class:"text-decoration-none text-white"
+                    h6 class="card-subtitle fst-italic text-white" = book.year
+                    h4 class="card-text fs-6 display-6 text-white mb-1" = book.author
+
+                    button type="button" class="btn btn-dark" style="background-color: #00000069;" data-bs-toggle="modal" data-bs-target="#modal_#{book.id} "
+                        | Género
+                    div class="modal fade" id="modal_#{book.id}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
+                        div class="modal-dialog"
+                            div class="modal-content" style="background-color: #dfdff2;"
+                                div class="modal-header justify-content-center"
+                                    h5 class="modal-title display-5" id="exampleModalLabel"
+                                        | Género(s) de tu libro
+                                div class="modal-body"
+                                    h6 style="font-size: x-large;" = book.genre 
+                                div class="modal-footer"
+                                    button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                                        | Seguir explorando

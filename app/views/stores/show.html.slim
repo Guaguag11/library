@@ -1,0 +1,25 @@
+div class="d-flex justify-content-evenly"
+    div class="pt-5 text-white"
+        h1 class="display-1" style="font-weight:bold"= @store.codename 
+        h6 style="font-size: x-large"= @store.adress
+        h6 style="font-size: larger;"= @store.phone
+        button type="button" class="btn btn-light mt-4" style="width:7rem" =link_to 'Editar', edit_store_path(@store), class:"text-decoration-none text-black"
+
+    div class="pt-5" style="width: 35rem"
+        div class="card d-flex flex-row justify-content-between text-secondary mb-3 px-2 text-white"  style="height: 3rem; padding-top: 7px; background-color: #9d9d9d6b;"
+            h2 style="font-size: x-large; color: #cec8c0;" 
+                |Libro
+            h2 style="font-size: x-large; color: #ded7cd;"
+                |cantidad
+        - @store.books.each do |b|
+            div class="container card mb-3" style="width:35rem"
+                div class="row d-flex align-items-center justify-content-between" style="height:3rem;"
+                    div class="col-10 display"
+                        h4 = link_to b.title , "/books/#{b.id}" , class:"text-decoration-none text-black", style:"font-size: large;"
+                    div class="col-1" 
+                        h6 = b.quantity
+
+
+/h6 style="font-size: larger;"= "#{@store.books.count} libro(s)"
+/-@store.books.each do |book| 
+    h6 = "#{book.title}-#{book.quantity}"

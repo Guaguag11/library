@@ -1,0 +1,14 @@
+
+div
+  button type="button" class="btn btn-light mb-5 ms-5" style="height:3rem" =link_to 'Nueva tienda', new_store_path(@store), class:"text-decoration-none text-black"
+
+- @stores.each do |store|
+  div class="container card mb-3" style="width:75rem"
+      div class="row d-flex align-items-center" style="height:3rem;"
+        div class="col-sm display"
+          h4 = link_to store.codename, "/stores/#{store.id}", class:"text-decoration-none text-dark" 
+        div class="col-sm"
+          h6 =store.adress
+        div class="col-sm d-flex justify-content-center"
+          h6 = store.phone
+

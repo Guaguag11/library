@@ -1,0 +1,18 @@
+ul class="nav nav-pills nav-fill sticky-top bg-light ms-4 me-4 mb-4 rounded-2 "
+    li class="nav-item"
+        a class="nav-link text-secondary" style="font-weight: 800;" href="/"
+            |Home
+    li class="nav-item"
+        a class="nav-link text-secondary" style="font-weight: 800;" href="/books"
+            |Books
+    li class="nav-item"
+        a class="nav-link text-secondary" style="font-weight: 800;" href="/stores"
+            |Stores
+    li class="nav-item mt-2rem d-flex align-items-center justify-content-end pe-2"
+        -if user_signed_in?
+            = link_to current_user.email, edit_user_registration_path, class:"text-secondary text-decoration-none pe-5", style:"font-weight: 600;"
+            = link_to "Logout", destroy_user_session_path, method: :delete, class:"text-secondary text-decoration-none pe-4"
+        -else
+            = link_to "Sign Up", new_user_registration_path, class:"text-secondary text-decoration-none pe-4"
+            = link_to "Login", new_user_session_path, class:"text-secondary text-decoration-none pe-2"
+

@@ -1,0 +1,23 @@
+@import 'bootstrap/scss/bootstrap';
+@import 'bootstrap-icons/font/bootstrap-icons';
+
+body.main {
+    background-image: url(fondo23.jpg) ; 
+    background-size:cover;
+}
+
+body.books{
+    background-image: url(fondo23.jpg) ;
+    background-size:contain;
+}
+
+
+body.stores{
+    background-image: url(fondo23.jpg) ;
+    background-size:cover;
+}
+
+body.index{
+margin-bottom: 0%;
+}
+
